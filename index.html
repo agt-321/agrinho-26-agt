@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RaizLab | Agrinho Programação 2026</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#nucleo" aria-label="RaizLab - início">
+      <span class="brand-mark" aria-hidden="true">RL</span>
+      <span>RaizLab</span>
+    </a>
+
+    <nav class="menu" aria-label="Navegação principal">
+      <a href="#nucleo">Núcleo</a>
+      <a href="#missao">Missão</a>
+      <a href="#mapa">Talhões</a>
+      <a href="#quiz">Quiz</a>
+    </nav>
+
+    <div class="toolbar" aria-label="Preferências">
+      <button class="icon-button" id="decreaseFont" type="button" aria-label="Diminuir fonte">A-</button>
+      <button class="icon-button" id="increaseFont" type="button" aria-label="Aumentar fonte">A+</button>
+      <button class="icon-button" id="themeToggle" type="button" aria-label="Alternar contraste">Noite</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="command-hero" id="nucleo" aria-labelledby="heroTitle">
+      <div class="hero-copy">
+        <p class="eyebrow">Central subterrânea • Agrinho 2026</p>
+        <h1 id="heroTitle">Escute o solo antes de plantar.</h1>
+        <p>
+          O RaizLab transforma biodiversidade, sensores e manejo em uma sala de controle do campo:
+          escolha um risco, veja o núcleo reagir e monte uma resposta sustentável.
+        </p>
+      </div>
+
+      <form class="mission-console" id="missionForm">
+        <fieldset>
+          <legend>Risco observado no talhão</legend>
+          <label class="scenario-option active">
+            <input type="radio" name="scenario" value="erosion" checked>
+            <span>Erosão</span>
+          </label>
+          <label class="scenario-option">
+            <input type="radio" name="scenario" value="compaction">
+            <span>Compactação</span>
+          </label>
+          <label class="scenario-option">
+            <input type="radio" name="scenario" value="chemical">
+            <span>Excesso químico</span>
+          </label>
+          <label class="scenario-option">
+            <input type="radio" name="scenario" value="bare">
+            <span>Solo descoberto</span>
+          </label>
+        </fieldset>
+        <output class="mission-output" id="missionOutput" for="missionForm">
+          Instalar cobertura viva e reduzir a velocidade da água sobre o terreno.
+        </output>
+      </form>
+
+      <div class="soil-stage" id="soilStage" data-scenario="erosion">
+        <img class="field-photo" src="assets/img/solo-vivo-hero.webp" alt="Campo com solo em corte, raízes, sensores e drone">
+        <div class="scan-grid" aria-hidden="true"></div>
+
+        <div class="soil-core" aria-label="Núcleo visual do solo">
+          <span class="status-chip" id="statusChip">Alerta de erosão</span>
+          <span class="surface-line" aria-hidden="true"></span>
+          <span class="crop-stem stem-one" aria-hidden="true"></span>
+          <span class="crop-stem stem-two" aria-hidden="true"></span>
+          <span class="root root-one" aria-hidden="true"></span>
+          <span class="root root-two" aria-hidden="true"></span>
+          <span class="root root-three" aria-hidden="true"></span>
+          <span class="microbe microbe-one" aria-hidden="true"></span>
+          <span class="microbe microbe-two" aria-hidden="true"></span>
+          <span class="microbe microbe-three" aria-hidden="true"></span>
+          <span class="sensor-pin pin-one" aria-hidden="true"></span>
+          <span class="sensor-pin pin-two" aria-hidden="true"></span>
+          <div class="soil-layer layer-organic">cobertura</div>
+          <div class="soil-layer layer-humus">húmus</div>
+          <div class="soil-layer layer-clay">argila</div>
+          <div class="soil-layer layer-mineral">minerais</div>
+        </div>
+
+        <div class="data-strip" aria-label="Leituras do solo">
+          <div>
+            <span>Vida</span>
+            <strong id="lifeReadout">63%</strong>
+          </div>
+          <div>
+            <span>Água</span>
+            <strong id="waterReadout">48%</strong>
+          </div>
+          <div>
+            <span>Poros</span>
+            <strong id="poreReadout">52%</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mission-section" id="missao" aria-labelledby="missionTitle">
+      <div class="section-heading">
+        <p class="eyebrow">Plano de recuperação</p>
+        <h2 id="missionTitle">Monte uma receita de solo vivo</h2>
+        <p>
+          Cada prática mexe em fertilidade, proteção e economia. A proposta é unir técnica rural com leitura de dados,
+          como um agricultor que conversa com a própria terra.
+        </p>
+      </div>
+
+      <div class="practice-rail" role="tablist" aria-label="Práticas de manejo">
+        <button class="practice-button active" type="button" role="tab" aria-selected="true" data-practice="green">Cobertura viva</button>
+        <button class="practice-button" type="button" role="tab" aria-selected="false" data-practice="rotation">Rodízio de culturas</button>
+        <button class="practice-button" type="button" role="tab" aria-selected="false" data-practice="traffic">Rota de máquinas</button>
+        <button class="practice-button" type="button" role="tab" aria-selected="false" data-practice="iot">Sentinelas IoT</button>
+      </div>
+
+      <article class="recipe-panel" id="recipePanel">
+        <p class="panel-kicker" id="practiceLabel">Primeira resposta</p>
+        <h3 id="practiceTitle">Cobertura viva</h3>
+        <p id="practiceText">
+          Palhada e plantas de cobertura protegem a superfície, alimentam microrganismos e deixam a chuva infiltrar melhor.
+        </p>
+        <div class="meter-board" aria-label="Impactos da prática selecionada">
+          <label for="fertilityMeter">Fertilidade</label>
+          <meter id="fertilityMeter" min="0" max="100" value="86">86</meter>
+          <label for="protectionMeter">Proteção</label>
+          <meter id="protectionMeter" min="0" max="100" value="92">92</meter>
+          <label for="costMeter">Custo-benefício</label>
+          <meter id="costMeter" min="0" max="100" value="74">74</meter>
+        </div>
+      </article>
+    </section>
+
+    <section class="map-section" id="mapa" aria-labelledby="mapTitle">
+      <div class="section-heading">
+        <p class="eyebrow">Mapa de talhões</p>
+        <h2 id="mapTitle">Clique no campo e leia o sinal</h2>
+      </div>
+
+      <div class="field-board" aria-label="Mapa interativo da propriedade">
+        <button class="plot plot-a" type="button" data-plot="A">A</button>
+        <button class="plot plot-b" type="button" data-plot="B">B</button>
+        <button class="plot plot-c" type="button" data-plot="C">C</button>
+        <button class="plot plot-d" type="button" data-plot="D">D</button>
+        <button class="plot plot-e" type="button" data-plot="E">E</button>
+        <button class="plot plot-f" type="button" data-plot="F">F</button>
+      </div>
+
+      <aside class="plot-report" aria-live="polite">
+        <span class="panel-kicker">Leitura do sensor</span>
+        <h3 id="plotTitle">Talhão A</h3>
+        <p id="plotText">Área com boa cobertura, umidade estável e sinais de minhocas e raízes finas.</p>
+        <strong id="plotAction">Manter rotação e registrar evolução semanal.</strong>
+      </aside>
+    </section>
+
+    <section class="quiz-section" id="quiz" aria-labelledby="quizTitle">
+      <div class="section-heading">
+        <p class="eyebrow">Desafio final</p>
+        <h2 id="quizTitle">Qual comando salvaria o solo primeiro?</h2>
+      </div>
+
+      <form class="quiz-form" id="quizForm">
+        <fieldset>
+          <legend>Após chuva forte, a água levou a camada superficial do solo. O que fazer?</legend>
+          <label>
+            <input type="radio" name="quiz" value="0">
+            Aumentar aração para “soltar” tudo rapidamente.
+          </label>
+          <label>
+            <input type="radio" name="quiz" value="1">
+            Cobrir o solo, reduzir enxurrada e planejar rotação.
+          </label>
+          <label>
+            <input type="radio" name="quiz" value="0">
+            Deixar o talhão sem plantas até a próxima safra.
+          </label>
+        </fieldset>
+        <button class="primary-action" type="submit">Enviar comando</button>
+      </form>
+
+      <output class="quiz-output" id="quizOutput" for="quizForm">Pontuação: 0</output>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>RaizLab é um projeto autoral para Agrinho Programação 2026, feito com HTML, CSS e JavaScript puros.</p>
+  </footer>
+
+  <script src="js/script.js" defer></script>
+</body>
+</html>
